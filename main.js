@@ -28,13 +28,13 @@ function addZero(x) {
 function setBackground() {
   let hour = new Date().getHours();
   if (hour < 12) {
-    document.body.style.backgroundImage = "url('../img/morning.jpg')";
+    document.body.style.backgroundImage = "url('img/morning.jpg')";
     g.textContent = "Good Morning";
   } else if (hour < 18) {
-    document.body.style.backgroundImage = "url('../img/afternoon.jpg')";
+    document.body.style.backgroundImage = "url('img/afternoon.jpg')";
     g.textContent = "Good Afternoon";
   } else {
-    document.body.style.backgroundImage = "url('../img/evening.jpg')";
+    document.body.style.backgroundImage = "url('img/evening.jpg')";
     document.body.style.color = "white";
     g.textContent = "Good Evening";
   }
