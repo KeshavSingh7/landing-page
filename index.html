@@ -4,31 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/105f2a602f.js"></script>
     <link rel="stylesheet" href="style.css" />
     <title>Landing Page</title>
   </head>
   <body>
-    <time id="time"></time>
-    <div>
-      <h1 id="greeting"></h1>
-      <h1 id="name" contenteditable="true"></h1>
+    <div class="weather">
+      <div id="title">Weather</div>
+      <div class="temp-cond">
+        <div id="temp"></div>
+        <div class="condition"><img src="" id="condition" /></div>
+      </div>
+      <div id="location"></div>
     </div>
-    <!--<div>
-      <h2>What is your focus today ?</h2>
-      <h2 id="focus" contenteditable="true"></h2>
-    </div>-->
-    <h5 id="quote"></h5>
+    <div class="container">
+      <div id="time"></div>
+      <div class="greeting-name">
+        <div id="greeting"></div>
+        <div id="name" contenteditable="true"></div>
+      </div>
+      <div id="quote"></div>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>

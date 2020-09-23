@@ -5,51 +5,90 @@
 }
 
 body {
-  font-family: "Lobster", cursive;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  text-align: center;
-  align-content: center;
-  height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  position: relative;
+}
+
+.weather {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  font-size: 1rem;
+  background: white;
   color: black;
+  height: 100px;
+  width: 125px;
+  border-radius: 5px;
+  text-align: center;
+  padding: 0.25rem;
+}
+
+#title {
+  background: black;
+  color: white;
+  border-radius: 5px;
+}
+
+.temp-cond {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#temp {
+  padding: 0.25rem;
+}
+
+#condition {
+  width: 35px;
+  height: 35px;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 #time {
-  font-size: 6rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  padding-top: 10rem;
+  font-size: 7rem;
+  pointer-events: none;
 }
 
-h1:nth-of-type(1) {
-  margin-bottom: 1rem;
+.greeting-name {
+  font-size: 2rem;
+  display: flex;
+  padding-bottom: 3rem;
 }
 
-h1:nth-of-type(2) {
-  margin-bottom: 3rem;
-  color: red;
+#greeting {
+  pointer-events: none;
 }
 
-/*h2:nth-of-type(1) {
-  margin-bottom: 1rem;
-  font-weight: lighter;
-}
-
-h2:nth-of-type(2) {
-  font-weight: lighter;
-  color: red;
-}*/
-
-h1:active,
-h1:focus {
+#name:focus,
+#name:active {
   outline: none;
 }
 
-@media (max-width: 700px) {
+#quote {
+  font-size: 1rem;
+  padding-top: 8rem;
+}
+
+@media (max-width: 450px) {
   #time {
     font-size: 4rem;
+  }
+
+  .greeting-name {
+    font-size: 1.5rem;
   }
 }

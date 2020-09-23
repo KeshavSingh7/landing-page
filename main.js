@@ -6,17 +6,38 @@ window.addEventListener("load", () => {
     })
     .then((data) => {
       document.getElementById("quote").innerText =
-        data.contents.quotes[0].quote;
+        '" ' + data.contents.quotes[0].quote + ' "';
     });
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      longitude = position.coords.longitude;
+      latitude = position.coords.latitude;
+      const api = `http://api.weatherapi.com/v1/current.json?key=6ab45c63b0a040fe90c145636200109&q=${latitude},${longitude}`;
+      fetch(api)
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          const getPlace = data.location.name;
+          const getRegion = data.location.region;
+          const getCountry = data.location.country;
+          const getIcon = data.current.condition.icon;
+          const getTemp = data.current.temp_c;
+          const getDesc = data.current.condition.text;
+          document.getElementById("temp").innerText = getTemp + " °C";
+          document.getElementById("condition").setAttribute("src", getIcon);
+          document.getElementById("location").innerText = getPlace;
+        });
+    });
+  }
+
   const t = document.getElementById("time");
   const g = document.getElementById("greeting");
   const n = document.getElementById("name");
-  //const f = document.getElementById("focus");
 
   n.addEventListener("keypress", setName);
   n.addEventListener("blur", setName);
-  //f.addEventListener("keypress", setFocus);
-  //f.addEventListener("blur", setFocus);
 
   function setTime() {
     let today = new Date(),
@@ -45,9 +66,6 @@ window.addEventListener("load", () => {
       g.textContent = "Good Afternoon, ";
     } else {
       document.body.style.backgroundImage = "url('img/evening.jpg')";
-      document.body.style.color = "white";
-      n.style.color = "pink";
-      //f.style.color = "pink";
       g.textContent = "Good Evening, ";
     }
   }
@@ -62,7 +80,7 @@ window.addEventListener("load", () => {
 
   function setName(ev) {
     if (ev.type === "keypress") {
-      if (ev.which == 13 || ev.keyCode == 13) {
+      if ((ev.which == 13 || ev.keyCode == 13) && ev.target.innerText !== "") {
         localStorage.setItem("n", ev.target.innerText);
         n.blur();
       }
@@ -71,27 +89,7 @@ window.addEventListener("load", () => {
     }
   }
 
-  /*function getFocus() {
-    if (localStorage.getItem("f") === null) {
-      f.textContent = "[Enter Focus]";
-    } else {
-      f.textContent = localStorage.getItem("f");
-    }
-  }
-
-  function setFocus(e) {
-    if (e.type === "keypress") {
-      if (e.which == 13 || e.keyCode == 13) {
-        localStorage.setItem("f", e.target.innerText);
-        f.blur();
-      }
-    } else {
-      localStorage.setItem("f", e.target.innerText);
-    }
-  }*/
-
   setTime();
   setBackground();
   getName();
-  //getFocus();
 });
