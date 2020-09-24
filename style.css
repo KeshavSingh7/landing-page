@@ -21,7 +21,7 @@ body {
   background: white;
   color: black;
   height: 100px;
-  width: 125px;
+  width: 120px;
   border-radius: 5px;
   text-align: center;
   padding: 0.25rem;
@@ -31,6 +31,7 @@ body {
   background: black;
   color: white;
   border-radius: 5px;
+  margin-bottom: 0.2rem;
 }
 
 .temp-cond {
@@ -46,6 +47,57 @@ body {
 #condition {
   width: 35px;
   height: 35px;
+  position: relative;
+}
+
+#condition:hover {
+  cursor: pointer;
+}
+
+#tooltip1 {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+.condition:hover #tooltip1 {
+  visibility: visible;
+}
+
+.loaction {
+  position: relative;
+}
+
+#location:hover {
+  cursor: pointer;
+}
+
+#tooltip2 {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+
+#location:hover + #tooltip2 {
+  visibility: visible;
 }
 
 .container {
@@ -78,17 +130,37 @@ body {
   outline: none;
 }
 
-#quote {
+.quote {
   font-size: 1rem;
   padding-top: 8rem;
+  position: relative;
+  text-align: center;
 }
 
-@media (max-width: 450px) {
-  #time {
-    font-size: 4rem;
-  }
+#quote {
+  transition: 250ms ease-in-out;
+}
 
-  .greeting-name {
-    font-size: 1.5rem;
-  }
+#quote:hover {
+  cursor: pointer;
+  transform: translateY(-1rem);
+  transition: 250ms ease-in-out;
+}
+
+#author {
+  visibility: hidden;
+  position: absolute;
+  font-size: 0.8rem;
+  color: lightblue;
+  text-align: center;
+  margin-left: auto;
+  left: 0;
+  right: 0;
+  bottom: 5%;
+}
+
+#quote:hover + #author {
+  visibility: visible;
+  transform: translateY(0.75rem);
+  transition: visibility 250ms ease-in-out;
 }

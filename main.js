@@ -1,12 +1,20 @@
 window.addEventListener("load", () => {
-  const api = "https://quotes.rest/qod?language=en";
-  fetch(api)
+  const api1 = "https://quotes.rest/qod?language=en";
+  fetch(api1)
     .then((response) => {
       return response.json();
     })
     .then((data) => {
+      console.log(data);
       document.getElementById("quote").innerText =
         '" ' + data.contents.quotes[0].quote + ' "';
+
+      if (data.contents.quotes[0].author === null) {
+        document.getElementById("author").innerText = "- unknown";
+      } else {
+        document.getElementById("author").innerText =
+          "- " + data.contents.quotes[0].author;
+      }
     });
 
   if (navigator.geolocation) {
@@ -28,9 +36,14 @@ window.addEventListener("load", () => {
           document.getElementById("temp").innerText = getTemp + " °C";
           document.getElementById("condition").setAttribute("src", getIcon);
           document.getElementById("location").innerText = getPlace;
+          document.getElementById("tooltip1").innerText = getDesc;
+          document.getElementById("tooltip2").innerText =
+            getPlace + ", " + getRegion + ", " + getCountry;
         });
     });
   }
+
+  const api2 = "https://picsum.photos/v2/list.webp";
 
   const t = document.getElementById("time");
   const g = document.getElementById("greeting");
@@ -72,7 +85,7 @@ window.addEventListener("load", () => {
 
   function getName() {
     if (localStorage.getItem("n") === null) {
-      n.textContent = "[Enter Name]";
+      n.textContent = " [Enter Name]";
     } else {
       n.textContent = localStorage.getItem("n");
     }
