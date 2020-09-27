@@ -137,13 +137,16 @@ body {
   text-align: center;
 }
 
-#quote {
+.quote-container:hover {
+  cursor: pointer;
+}
+
+.quote-container:hover #quote {
+  transform: translateY(-1rem);
   transition: 250ms ease-in-out;
 }
 
-#quote:hover {
-  cursor: pointer;
-  transform: translateY(-1rem);
+#quote {
   transition: 250ms ease-in-out;
 }
 
@@ -159,7 +162,7 @@ body {
   bottom: 5%;
 }
 
-#quote:hover + #author {
+.quote-container:hover #author {
   visibility: visible;
   transform: translateY(0.75rem);
   transition: visibility 250ms ease-in-out;
